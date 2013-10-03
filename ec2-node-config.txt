@@ -1,0 +1,60 @@
+Download
+
+
+sudo yum install gcc-c++ make
+sudo yum install openssl-devel
+sudo yum install git
+git clone git://github.com/joyent/node.git
+cd node
+
+
+git clone https://github.com/isaacs/npm.git
+cd npm
+sudo make install
+
+
+READ This GUIDE
+----------------------
+http://library.linode.com/databases/mongodb/centos-5
+XXXJASIMXXXX
+========================
+
+
+
+ use --smallfiles
+
+mongodb-start
+----------------------
+#!/bin/sh
+
+/mongodb/bin/mongod --smallfiles  --config /data/config \
+## --upgrade \ ##runs a database upgrade option if needed \
+--------------------------
+
+
+
+/data/config file
+-----------------------
+# Configuration Options for MongoDB
+#
+# For More Information, Consider:
+# - Configuration Parameters: http://www.mongodb.org/display/DOCS/Command+Line+Parameters
+# - File Based Configuration: http://www.mongodb.org/display/DOCS/File+Based+Configuration
+dbpath = /data/db/mongodb
+logpath = /data/log/mongodb.log
+logappend = true
+#bind_ip = 127.0.0.1
+port = 27017
+fork = true
+#auth = true
+noauth = true
+
+
+useradd -M -r --home-dir /data/bin mongodb
+
+
+http://japhr.blogspot.in/2011/09/faye-as-persistence-layer-in-backbonejs.html
+
+Sample Node Application
+
+http://coenraets.org/blog/2012/10/nodecellar-sample-application-with-backbone-js-twitter-bootstrap-node-js-express-and-mongodb/
